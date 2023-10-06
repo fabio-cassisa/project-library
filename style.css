@@ -19,7 +19,7 @@ h1 {
   
   .card {
     min-height: 450px;
-    width: 200px;
+    width: 400px;
     vertical-align: text-top;
     background: rgb(241, 193, 193);
     border-radius: 16px;
@@ -29,7 +29,7 @@ h1 {
   
   .card img {
     width: 100%;
-    margin: 12px 0;
+    margin: 50px 0;
   }
   
   .card p {

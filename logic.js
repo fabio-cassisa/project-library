@@ -11,7 +11,7 @@ const addToCart = () => {};
 const loadBooks = (booksArray) => {
     container.innerHTML = "";
 
-    booksArray.forEach(books => { 
+    booksArray.forEach((books) => { 
         container.innerHTML +=
         `
         <div class="card">
@@ -19,7 +19,7 @@ const loadBooks = (booksArray) => {
             <button onclick="addToCart('${books.title}')">Add to cart</button>
             <img src="${books.image} art=${books.title}"
             <p>Rating: ${books.rating}</p>
-        `        
+        `;        
     });
 };
 
