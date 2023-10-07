@@ -3,10 +3,11 @@
 const container = document.getElementById("container");
 const card = document.getElementsByClassName("card");
 const cart = document.getElementById("cart");
+const filterDropDown = document.getElementById("filterDropDown");
 // const
 
 const addedToCart = [];
-const addToCart = () => {};
+//const addToCart = () => {};
 
 const loadBooks = (booksArray) => {
     container.innerHTML = "";
@@ -23,4 +24,25 @@ const loadBooks = (booksArray) => {
     });
 };
 
-loadBooks(books);
+const filterBooks = () => {
+    // Get the selected value from the filter dropdown.
+    const value = filterDropDown.value;
+  
+    if (value === "All") {
+      loadBooks(books);
+    } else {
+      // Otherwise, filter books by genre and show the right one.
+      const filteredDropDown = books.filter((book) => book.genre === value);
+      loadBooks(filteredDropDown);
+      
+      // A log to see which array has been created and shown.
+      console.log(filteredDropDown);
+    }
+  };
+
+  // Event listener to call the function filterBooks() when there's a change detected
+  // dropdown menu.
+  filterDropDown.addEventListener("change", filterBooks);
+  
+  // Initial display of all books.
+  loadBooks(books);
