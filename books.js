@@ -1,5 +1,5 @@
 /*Here we have created two different arrays that you can work with if you want.
-If you choose to create your own arrays with elements, just make sure that some
+If you choose t.o create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
 
 const books = [
@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/harry-potter-and-the-sorcerer.jpg"
   },
   {
     title: 'Moby-Dick',
@@ -183,4 +183,4 @@ const books = [
       'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
     image: './books-images/unknown.jpg'
   }
-]
+];

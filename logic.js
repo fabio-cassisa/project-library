@@ -1,29 +1,37 @@
 //Create some variables and get the relative data related to the HTML page.
-
-const container = document.getElementById("container");
+const booksSection = document.getElementById("booksSection");
 const card = document.getElementsByClassName("card");
 const cart = document.getElementById("cart");
 const filterDropDown = document.getElementById("filterDropDown");
-// const
+const byNewest = document.getElementById("byNewest");
+const byOldest = document.getElementById("byOldest");
+const searchInput = document.getElementById("searchInput"); 
 
 const addedToCart = [];
 //const addToCart = () => {};
 
-const loadBooks = (booksArray) => {
-    container.innerHTML = "";
+const loadBooks = (books) => {
+    booksSection.innerHTML = "";
 
-    booksArray.forEach((books) => { 
-        container.innerHTML +=
+    books.forEach((book) => { 
+        booksSection.innerHTML +=
         `
         <div class="card">
-            <h2>${books.title}</h2>
-            <button onclick="addToCart('${books.title}')">Add to cart</button>
-            <img src="${books.image} art=${books.title}"
-            <p>Rating: ${books.rating}</p>
-        `;        
+            <h2>${book.title}</h2>
+            <h5>by ${book.author}</h5>
+            <!--<button onclick="addToCart('${book.title}')">Add to cart</button>-->
+            <img src="${book.image}" art="${book.title}">
+            <section>
+                <p>Genre: ${book.genre}, Year: ${book.year}</p>
+                <p>${book.description}</p>
+            </section>
+            <p>Rating: ${book.rating}</p>
+        </div>
+        `       
     });
 };
 
+// Function to filter books by genre: 
 const filterBooks = () => {
     // Get the selected value from the filter dropdown.
     const value = filterDropDown.value;
@@ -40,9 +48,54 @@ const filterBooks = () => {
     }
   };
 
-  // Event listener to call the function filterBooks() when there's a change detected
-  // dropdown menu.
-  filterDropDown.addEventListener("change", filterBooks);
+// Function to sort books by newest to oldest:
+function sortByNewest() {
+    const sortedBooksNew = books.sort((a, b) => (b.year - a.year))
+    loadBooks(sortedBooksNew)
+};
+
+// Function to sort books by oldest to newest:
+function sortByOldest() {
+    const sortedBooksOld = books.sort((a, b) => (a.year - b.year))
+    loadBooks(sortedBooksOld)
+};
+
+// Function to filter books by title:
+function searchBooks() {
+    const searchTerm = searchInput.value.toLowerCase();
   
-  // Initial display of all books.
-  loadBooks(books);
+    if (searchTerm === "") {
+      // If the search input is empty, display all books.
+      loadBooks(books);
+    } else {
+      // Filter books whose titles contain the search term.
+      const filteredBooks = books.filter((book) =>
+        book.title.toLowerCase().includes(searchTerm)
+      );
+      loadBooks(filteredBooks);
+    }
+  }
+
+// (EXTRA) Function to sort by alphabetical order: 
+
+
+// Function to sort books by rating:
+  // Highest to lowest:
+
+  // Lowest to highest: 
+
+
+
+// EVENT LISTENERS SECTION HERE BELOW:
+  // Event listener to call the function filterBooks() when there's a change detected
+  // dropdown menu:
+  filterDropDown.addEventListener("change", filterBooks);
+  // sort by newest:
+  byNewest.addEventListener("click", sortByNewest);
+  // sort by oldest:
+  byOldest.addEventListener("click", sortByOldest);
+  // search option:
+  searchInput.addEventListener("input", searchBooks);
+
+// Initial display of all books.
+loadBooks(books);

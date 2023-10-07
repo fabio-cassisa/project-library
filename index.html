@@ -12,11 +12,11 @@
     <h1>Akademibokhandeln -- Welcome</h1>
     <h4>Here below you will find all the books we have:</h4>
   </header>
-
   <section id="filter-container">
-    <div id="filter">
+    <div class="filter">
       <!-- Here I'd like to put the filters for the library (on a side)-->
-      <label for="category">Filter by Category:</label>
+      <div class="filterBar">
+      <label>Filter by Category:</label>
       <select id="filterDropDown">
           <option value="All">All</option>
           <option value="Fiction">Fiction</option>
@@ -27,14 +27,28 @@
           <option value="Mystery">Mystery</option>
           <option value="Dystopian">Dystopian</option>
       </select>
+      </div>
+      <div class="filterBar">
+      <label>Sort by newest:</label>
+      <button id="byNewest">Newest</button>
+      </div>
+      <div class="filterBar">
+      <label>Sort by oldest:</label>
+      <button id="byOldest">Oldest</button>
+      </div>
+      <div class="filterBar">
+      <div class="search-bar">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+      </div>
     </div>
     <div id="cart"></div>
   </section>
 
-  <div id="container"></div>
+  <div id="booksSection"></div>
   
   <!-- Don't forget to connect the JavaScript file -->
   <script src="./books.js"></script>
-  <script src=./logic.js></script>
+  <script src="./logic.js"></script>
 </body>
 </html>
+
