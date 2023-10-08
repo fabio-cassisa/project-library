@@ -5,6 +5,8 @@ const filterDropDown = document.getElementById("filterDropDown");
 const byNewest = document.getElementById("byNewest");
 const byOldest = document.getElementById("byOldest");
 const byAlpha = document.getElementById("byAlpha");
+const byHigh = document.getElementById("byHigh");
+const byLow = document.getElementById("byLow");
 const searchInput = document.getElementById("searchInput"); 
 const cartItemsContainer = document.getElementById("cartItems");
 
@@ -132,9 +134,15 @@ function sortByAlpha() {
 
 // Function to sort books by rating:
   // Highest to lowest:
-
+  function sortRateHigh() {
+    const sortedRateHigh = books.sort((a, b) => (b.rating - a.rating))
+    loadBooks(sortedRateHigh)
+};
   // Lowest to highest: 
-
+  function sortRateLow() {
+    const sortedRateLow = books.sort((a, b) => (a.rating - b.rating))
+    loadBooks(sortedRateLow)
+};
 
 
 // EVENT LISTENERS SECTION HERE BELOW:
@@ -149,6 +157,10 @@ function sortByAlpha() {
   searchInput.addEventListener("input", searchBooks);
   // sort by alpha:
   byAlpha.addEventListener("click", sortByAlpha);
+  // sort by rating high:
+  byHigh.addEventListener("click", sortRateHigh);
+  // sort by rating low: 
+  byLow.addEventListener("click", sortRateLow);
 
 // Initial display of all books.
 loadBooks(books);
