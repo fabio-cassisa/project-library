@@ -22,4 +22,4 @@ Overall, I think it was a nice project and I could streach my goals as I wanted.
 
 ## View it live
 
--- link to Netfliy: 
+-- link to Netfliy: https://project-library-fabio.netlify.app/
