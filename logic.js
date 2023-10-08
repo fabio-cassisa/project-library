@@ -4,6 +4,7 @@ const card = document.getElementsByClassName("card");
 const filterDropDown = document.getElementById("filterDropDown");
 const byNewest = document.getElementById("byNewest");
 const byOldest = document.getElementById("byOldest");
+const byAlpha = document.getElementById("byAlpha");
 const searchInput = document.getElementById("searchInput"); 
 const cartItemsContainer = document.getElementById("cartItems");
 
@@ -118,7 +119,16 @@ function searchBooks() {
   }
 
 // (EXTRA) Function to sort by alphabetical order: 
-
+function sortByAlpha() {
+    const sortedByAlpha = books.slice().sort((a, b) => {
+      const titleA = a.title.toLowerCase();
+      const titleB = b.title.toLowerCase();
+      if (titleA < titleB) return -1;
+      if (titleA > titleB) return 1;
+      return 0;
+    });
+    loadBooks(sortedByAlpha);
+  }
 
 // Function to sort books by rating:
   // Highest to lowest:
@@ -137,6 +147,8 @@ function searchBooks() {
   byOldest.addEventListener("click", sortByOldest);
   // search option:
   searchInput.addEventListener("input", searchBooks);
+  // sort by alpha:
+  byAlpha.addEventListener("click", sortByAlpha);
 
 // Initial display of all books.
 loadBooks(books);
