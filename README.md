@@ -6,7 +6,7 @@ In this project the main focus is be able to manipulate the DOM, arrays and obje
 
 Focusing on vanilla JS, the idea is to work with the DOM by getting elements, having event listeners and using functions just created to manipulate an array of object. Then display after the filter the array just manipulated back to the DOM. 
 
-In this case it has been used many methods famous to manipulate an array like sort(), filter(), slice(), findIndex(). At the same time many other methods to listen or to assign variables to precise element in the HTML file (DOM). 
+In this case it has been used many methods famous to manipulate an array like sort(), filter(), reduce(), slice(), findIndex(). At the same time many other methods to listen or to assign variables to precise element in the HTML file (DOM). 
 
 With these interaction back and forth of listening to what happens in the DOM and injecting on the go HTML snippets is it possible to show/hide precise book cards filtered by the user.
 

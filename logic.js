@@ -9,6 +9,7 @@ const byHigh = document.getElementById("byHigh");
 const byLow = document.getElementById("byLow");
 const searchInput = document.getElementById("searchInput"); 
 const cartItemsContainer = document.getElementById("cartItems");
+const totalPriceElement = document.getElementById("totalPrice");
 
 // Empty array for the cart option
 const cartItems = [];
@@ -19,7 +20,13 @@ function addToCart(bookId) {
     if (book) {
       cartItems.push(book);
       updateCartDisplay();
+      updateTotalPrice();
     }
+  }
+
+  function updateTotalPrice() {
+    const total = cartItems.reduce((acc, book) => acc + book.price, 0);
+    totalPriceElement.textContent = total.toFixed(2); // Display total price with 2 decimal places
   }
   
   function updateCartDisplay() {
@@ -70,13 +77,22 @@ cartItemsContainer.addEventListener("click", (event) => {
     }
   });
   
-  function removeFromCart(bookId) {
+// Function to remove books from the cart
+function removeFromCart(bookId) {
     const index = cartItems.findIndex((book) => book.id === bookId);
     if (index !== -1) {
       cartItems.splice(index, 1);
       updateCartDisplay();
+      updateTotalPrice(); // Update the total price after removing a book
     }
   }
+
+// Function to update the total price
+function updateTotalPrice() {
+    const total = cartItems.reduce((acc, book) => acc + parseFloat(book.price), 0);
+    totalPriceElement.textContent = total.toFixed(2);
+  }
+  
 
 // Function to filter books by genre: 
 const filterBooks = () => {
