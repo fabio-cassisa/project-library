@@ -4,6 +4,10 @@ header {
     color: #fff; /* Text color */
     padding: 20px;
     text-align: center;
+    
+    /* Ensure cards don't overlap the main header */
+    z-index: 1;
+  
   }
   
   h1 {
@@ -56,7 +60,9 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; 
-    margin: -20px; /* Offset the margin added to .card */
+    margin: 20px -20px; /* Offset the margin added to .card + increased to add space on top */
+    min-height: 300px; /* Set a minimum height */
+    box-sizing: border-box; /* Include padding in the height calculation */
   }
   
   .card {
