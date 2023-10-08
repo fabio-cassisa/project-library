@@ -1,9 +1,8 @@
-/*Here we have created two different arrays that you can work with if you want.
-If you choose t.o create your own arrays with elements, just make sure that some
-of the properties make sense to filter on, and some to sort on.*/
+// Modified the books object by adding and "id" key.
 
 const books = [
   {
+    id: '1',
     title: 'The Great Gatsby',
     author: 'F. Scott Fitzgerald',
     year: 1925,
@@ -14,6 +13,7 @@ const books = [
     image: './books-images/the-great-gatsby.jpg'
   },
   {
+    id: '2',
     title: 'To Kill a Mockingbird',
     author: 'Harper Lee',
     year: 1960,
@@ -24,6 +24,7 @@ const books = [
     image: './books-images/to-kill-a-mockingbird.jpg'
   },
   {
+    id: '3',
     title: '1984',
     author: 'George Orwell',
     year: 1949,
@@ -34,6 +35,7 @@ const books = [
     image: './books-images/1984.jpg'
   },
   {
+    id: '4',
     title: 'Pride and Prejudice',
     author: 'Jane Austen',
     year: 1813,
@@ -44,6 +46,7 @@ const books = [
     image: './books-images/pride-and-prejudice.jpg'
   },
   {
+    id: '5',
     title: 'The Catcher in the Rye',
     author: 'J.D. Salinger',
     year: 1951,
@@ -54,6 +57,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '6',
     title: 'The Hobbit',
     author: 'J.R.R. Tolkien',
     year: 1937,
@@ -64,6 +68,7 @@ const books = [
     image: './books-images/the-hobbit.jpg'
   },
   {
+    id: '7',
     title: "Harry Potter and the Sorcerer's Stone",
     author: 'J.K. Rowling',
     year: 1997,
@@ -74,6 +79,7 @@ const books = [
     image: "./books-images/harry-potter-and-the-sorcerer.jpg"
   },
   {
+    id: '8',
     title: 'Moby-Dick',
     author: 'Herman Melville',
     year: 1851,
@@ -84,6 +90,7 @@ const books = [
     image: './books-images/moby-dick.jpg'
   },
   {
+    id: '9',
     title: 'The Lord of the Rings: The Fellowship of the Ring',
     author: 'J.R.R. Tolkien',
     year: 1954,
@@ -94,6 +101,7 @@ const books = [
     image: './books-images/the-lord-of-the-rings.jpg'
   },
   {
+    id: '10',
     title: 'The Shining',
     author: 'Stephen King',
     year: 1977,
@@ -104,6 +112,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '11',
     title: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
     author: 'C.S. Lewis',
     year: 1950,
@@ -114,6 +123,7 @@ const books = [
     image: './books-images/the-chronicles-of-narnia.jpg'
   },
   {
+    id: '12',
     title: 'The Da Vinci Code',
     author: 'Dan Brown',
     year: 2003,
@@ -124,6 +134,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '13',
     title: 'The Alchemist',
     author: 'Paulo Coelho',
     year: 1988,
@@ -134,6 +145,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '14',
     title: 'The Hunger Games',
     author: 'Suzanne Collins',
     year: 2008,
@@ -144,6 +156,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '15',
     title: 'The Girl with the Dragon Tattoo',
     author: 'Stieg Larsson',
     year: 2005,
@@ -154,6 +167,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '16',
     title: 'The Road',
     author: 'Cormac McCarthy',
     year: 2006,
@@ -164,6 +178,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '17',
     title: "The Hitchhiker's Guide to the Galaxy",
     author: 'Douglas Adams',
     year: 1979,
@@ -174,6 +189,7 @@ const books = [
     image: './books-images/unknown.jpg'
   },
   {
+    id: '18',
     title: 'The Giver',
     author: 'Lois Lowry',
     year: 1993,

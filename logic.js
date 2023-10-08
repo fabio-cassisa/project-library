@@ -1,14 +1,35 @@
 //Create some variables and get the relative data related to the HTML page.
 const booksSection = document.getElementById("booksSection");
 const card = document.getElementsByClassName("card");
-const cart = document.getElementById("cart");
 const filterDropDown = document.getElementById("filterDropDown");
 const byNewest = document.getElementById("byNewest");
 const byOldest = document.getElementById("byOldest");
 const searchInput = document.getElementById("searchInput"); 
+const cartItemsContainer = document.getElementById("cartItems");
 
-const addedToCart = [];
-//const addToCart = () => {};
+// Empty array for the cart option
+const cartItems = [];
+
+// Function for "adding to cart"
+function addToCart(bookId) {
+    const book = books.find((b) => b.id === bookId);
+    if (book) {
+      cartItems.push(book);
+      updateCartDisplay();
+    }
+  }
+  
+  function updateCartDisplay() {
+    cartItemsContainer.innerHTML = "";
+    cartItems.forEach((book) => {
+      cartItemsContainer.innerHTML += `
+        <div class="cart-item">
+          <h3>${book.title}</h3>
+          <button class="remove-from-cart" data-id="${book.id}">Remove</button>
+        </div>
+      `;
+    });
+  }
 
 const loadBooks = (books) => {
     booksSection.innerHTML = "";
@@ -19,7 +40,7 @@ const loadBooks = (books) => {
         <div class="card">
             <h2>${book.title}</h2>
             <h5>by ${book.author}</h5>
-            <!--<button onclick="addToCart('${book.title}')">Add to cart</button>-->
+            <button class="add-to-cart" data-id="${book.id}">Add to Cart</button>
             <img src="${book.image}" art="${book.title}">
             <section>
                 <p>Genre: ${book.genre}, Year: ${book.year}</p>
@@ -27,9 +48,32 @@ const loadBooks = (books) => {
             </section>
             <p>Rating: ${book.rating}</p>
         </div>
-        `       
+        `;
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+            button.addEventListener("click", (event) => {
+              const bookId = event.target.getAttribute("data-id");
+              addToCart(bookId);
+            });
+          });
     });
 };
+
+// Function to listen and remove a card if "Remove" is being clicked:
+cartItemsContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-from-cart")) {
+      const bookId = event.target.getAttribute("data-id");
+      removeFromCart(bookId);
+    }
+  });
+  
+  function removeFromCart(bookId) {
+    const index = cartItems.findIndex((book) => book.id === bookId);
+    if (index !== -1) {
+      cartItems.splice(index, 1);
+      updateCartDisplay();
+    }
+  }
 
 // Function to filter books by genre: 
 const filterBooks = () => {
@@ -42,9 +86,6 @@ const filterBooks = () => {
       // Otherwise, filter books by genre and show the right one.
       const filteredDropDown = books.filter((book) => book.genre === value);
       loadBooks(filteredDropDown);
-      
-      // A log to see which array has been created and shown.
-      console.log(filteredDropDown);
     }
   };
 
