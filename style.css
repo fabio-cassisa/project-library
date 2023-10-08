@@ -147,6 +147,15 @@ header {
     font-size: 18px;
     margin: 0;
   }
+
+  #ratePrice {
+    display: flex; /* Change to flex to align elements in a row */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 3px solid #f2f2f2;
+    border-radius: 10px;
+  }
   
   .remove-from-cart {
     background-color: #dc3545; /* Red background color for the "Remove" button */

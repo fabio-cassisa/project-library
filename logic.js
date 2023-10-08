@@ -56,7 +56,10 @@ const loadBooks = (books) => {
                 <p>Genre: ${book.genre}, Year: ${book.year}</p>
                 <p>${book.description}</p>
             </section>
-            <p>Rating: ${book.rating}</p>
+            <section id="ratePrice">
+            <p>Rating: ${book.rating}</p>   
+            <p>Price: ${book.price} sek</p>
+            </section>
         </div>
         `;
         const addToCartButtons = document.querySelectorAll(".add-to-cart");
