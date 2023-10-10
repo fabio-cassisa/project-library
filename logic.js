@@ -7,14 +7,15 @@ const byOldest = document.getElementById("byOldest");
 const byAlpha = document.getElementById("byAlpha");
 const byHigh = document.getElementById("byHigh");
 const byLow = document.getElementById("byLow");
+const by21stCenturyButton = document.getElementById("by21stCentury");
 const searchInput = document.getElementById("searchInput"); 
 const cartItemsContainer = document.getElementById("cartItems");
 const totalPriceElement = document.getElementById("totalPrice");
 
-// Empty array for the cart option
+// Empty array for the cart option:
 const cartItems = [];
 
-// Function for "adding to cart"
+// Function for "adding to cart":
 function addToCart(bookId) {
     const book = books.find((b) => b.id === bookId);
     if (book) {
@@ -90,7 +91,7 @@ function removeFromCart(bookId) {
     }
   }
 
-// Function to update the total price
+// Function to update the total price:
 function updateTotalPrice() {
     const total = cartItems.reduce((acc, book) => acc + parseFloat(book.price), 0);
     totalPriceElement.textContent = total.toFixed(2);
@@ -122,6 +123,13 @@ function sortByOldest() {
     const sortedBooksOld = books.sort((a, b) => (a.year - b.year))
     loadBooks(sortedBooksOld)
 };
+
+// Function to show only the books from the 21st century:
+function filter21stCenturyBooks() {
+  const currentYear = new Date().getFullYear();
+  const filteredBooksCent = books.filter((book) => book.year >= 2000 && book.year <= currentYear);
+  loadBooks(filteredBooksCent);
+}
 
 // Function to filter books by title:
 function searchBooks() {
@@ -180,6 +188,8 @@ function sortByAlpha() {
   byHigh.addEventListener("click", sortRateHigh);
   // sort by rating low: 
   byLow.addEventListener("click", sortRateLow);
+  // filter by century:
+  by21stCenturyButton.addEventListener("click", filter21stCenturyBooks);
 
 // Initial display of all books.
 loadBooks(books);
